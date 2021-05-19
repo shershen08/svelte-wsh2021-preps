@@ -44,7 +44,7 @@
 
 
                 {#await promiseLoadingUsers}
-                  <p>...loading users</p>
+                  <p class="users-list--status">...loading users</p>
                 {:then users}
                   
                   {#if users }
@@ -54,7 +54,7 @@
                   {/if}
 
                 {:catch error}
-                  <p style="color: red">{error.message}</p>
+                  <p class="users-list--status" style="color: red">{error.message}</p>
                 {/await}
 
 

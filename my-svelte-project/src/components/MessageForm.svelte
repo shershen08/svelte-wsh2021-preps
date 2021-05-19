@@ -12,6 +12,8 @@
 		dispatch('message', {
 			message
 		});
+
+    message = ''
 	}
 </script>
 <div class="type_msg">

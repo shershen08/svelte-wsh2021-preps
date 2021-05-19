@@ -2,7 +2,6 @@
 img{ max-width:100%;}
 .inbox_people {
   background: #f8f8f8 none repeat scroll 0 0;
-  float: left;
   overflow: hidden;
    border-right:1px solid #c4c4c4;
 }
@@ -70,14 +69,14 @@ img{ max-width:100%;}
   vertical-align: top;
   width: 92%;
  }
- .received_withd_msg p {
+ .received_msg p {
   background: #ebebeb none repeat scroll 0 0;
   border-radius: 3px;
   color: #646464;
   font-size: 14px;
   margin: 0;
   padding: 5px 10px 5px 12px;
-  width: 100%;
+  width: 57%;
 }
 .time_date {
   color: #747474;
@@ -85,7 +84,8 @@ img{ max-width:100%;}
   font-size: 12px;
   margin: 8px 0 0;
 }
-.received_withd_msg { width: 57%;}
+/* .received_withd_msg { width: 57%;} */
+
 .mesgs {
   float: left;
   padding: 30px 15px 0 25px;
@@ -110,6 +110,10 @@ img{ max-width:100%;}
   padding-left: 0px;
 }
 
+.users-list--status {
+  text-align:center;
+  padding-top: 2em;
+}
  .sent_msg p {
   background: #05728f none repeat scroll 0 0;
   border-radius: 3px;
