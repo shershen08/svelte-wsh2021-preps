@@ -12,7 +12,7 @@
 		const routes = {
 			'/': Login,
 			'/chat/:chatid': Chat,
-			'/users/*': Users,
+			'/users': Users,
 	// 		wrap({
     //     asyncComponent: () => import('./routes/Book.svelte')
     // }),
@@ -24,19 +24,10 @@
 
 <main>
 	<Header/>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-
 	<Router {routes}/>
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
 
 	h1 {
 		color: #ff3e00;

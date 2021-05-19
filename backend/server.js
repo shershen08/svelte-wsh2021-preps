@@ -3,6 +3,7 @@ const posts = require('./posts.json');
 
 const express = require('express')
 const bodyParser = require('body-parser');
+var cors = require('cors')
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
@@ -11,7 +12,7 @@ const app = express()
 const port = 3000
 
 
-
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/auth/login', (req, res) => {
@@ -29,7 +30,9 @@ app.post('/auth/login', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-    res.json(users)
+    setTimeout((() => {
+        res.json(users)
+    }), 2000)
   })
 
 app.get('/posts', (req, res) => {

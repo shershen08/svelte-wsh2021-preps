@@ -1,14 +1,14 @@
 <script>
     import {link} from 'svelte-spa-router'
 </script>
-<ul>
-    <li>
-        <a href="/chat/321" use:link>chat</a>
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link" href="/chat/321" use:link>chat</a>
     </li>
-    <li>
-        <a href="/users/321" use:link>users</a>
+    <li class="nav-item">
+        <a class="nav-link" href="/users" use:link>users</a>
     </li>
-    <li>
-        <a href="/" use:link>login</a>
+    <li class="nav-item">
+        <a class="nav-link" href="/" use:link>login</a>
     </li>
 </ul>
