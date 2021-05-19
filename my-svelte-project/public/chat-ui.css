@@ -103,6 +103,7 @@ img{ max-width:100%;}
 
 .user-name.container .recent_heading {
   text-align: left;
+  width: 90%;
 }
 .user-name.container .headind_srch {
   padding-top: 0px;

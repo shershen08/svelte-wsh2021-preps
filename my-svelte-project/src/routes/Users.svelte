@@ -1,6 +1,6 @@
 <script>
   	import { onMount } from 'svelte';
-
+    import {fade} from 'svelte/transition'
 
   import UserItem from '../components/UserItem.svelte';
 
@@ -9,20 +9,22 @@
 
   async function getUsers() {
     const res = await fetch(`http://localhost:3000/users`);
-    const text = await res.text();
+    const users = await res.json();
 
     if (res.ok) {
-      return text;
+      return users;
     } else {
-      throw new Error(text);
+      throw new Error(users);
     }
   }
 
   onMount(async () => {
     promiseLoadingUsers = getUsers();
   })
+
+  let username;
 </script>
-<div class="container">
+<div class="container" in:fade="{{duration: 500}}">
     <div class="messaging">
           <div class="inbox_msg">
             <div class="inbox_people">
@@ -32,7 +34,7 @@
                 </div>
                 <div class="srch_bar">
                   <div class="stylish-input-group">
-                    <input type="text" class="search-bar"  placeholder="Search" >
+                    <input type="text" class="search-bar" bind:value={username} placeholder="Search" >
                     <span class="input-group-addon">
                     <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
                     </span> </div>
@@ -43,19 +45,17 @@
 
                 {#await promiseLoadingUsers}
                   <p>...loading users</p>
-                {:then number}
+                {:then users}
                   
-                
-                  {#each [1,2,3,4,5,6,7,8] as user}
-                    <UserItem/>
-                  {/each}
-
+                  {#if users }
+                    {#each users as user}
+                      <UserItem user={user}/>
+                    {/each}
+                  {/if}
 
                 {:catch error}
                   <p style="color: red">{error.message}</p>
                 {/await}
-
-       
 
 
               </div>

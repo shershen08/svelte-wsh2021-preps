@@ -1,10 +1,18 @@
 <script>
+  import {fade} from 'svelte/transition'
   import {push, pop, replace} from 'svelte-spa-router'
 
   import MessageForm from '../components/MessageForm.svelte'
-  const userName = 'dsdsd'
+
+  import {userStore} from '../store/user';
+
+  export let params = {};
+
+  const addMessage = ({detail}) => {
+    console.log(detail.message)
+  }
 </script>
-<div class="container user-name">
+<div class="container user-name" in:fade="{{duration: 500}}">
     <div class="messaging">
       <div class="inbox_msg">
         <div class="mesgs">
@@ -14,7 +22,7 @@
               on:click={() => push('/users')}>
                 <i class="fa fa-arrow-left" aria-hidden="true"></i>
               </button>
-              <h4>{userName}</h4>
+              <h4>{$userStore}</h4>
             </div>
           </div>
           <div class="msg_history">
@@ -58,7 +66,7 @@
             </div>
           </div>
           
-          <MessageForm/>
+          <MessageForm on:message={addMessage}/>
         </div>
       </div>
     </div>

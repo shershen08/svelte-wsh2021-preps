@@ -18,11 +18,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/auth/login', (req, res) => {
     
     console.log(req.body.password, req.body.username)
-    //      if (!req.headers.authorization) res.send(400, 'missing authorization header');
+    //if (!req.headers.authorization) res.send(400, 'missing authorization header');
 
-    if(req.body.username && req.body.password === 'test'){
+    if(req.body.username === 'codemotion' && req.body.password === 'demo'){
         res.json({
-            key: '23456789sdfghjkl'
+            key: '9e2fd657-1ef4-47e2-b9cc-90198b29c1fa'
         })
     } else {
         res.sendStatus(401);
@@ -30,9 +30,9 @@ app.post('/auth/login', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-    setTimeout((() => {
+    //setTimeout((() => {
         res.json(users)
-    }), 2000)
+    //}), 2000)
   })
 
 app.get('/posts', (req, res) => {

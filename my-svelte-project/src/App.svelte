@@ -22,7 +22,13 @@
 	export let name;
 </script>
 
+<svelte:head>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</svelte:head>
+
+
 <main>
+
 	<Header/>
 	<Router {routes}/>
 </main>
